@@ -15,6 +15,10 @@ documentation for substraTEE, an extension of [parity substrate](https://github.
 
 
 # substraTEE-client
+*off-chain*: nothing special needs to be run by blockchain validators. normal transactions
+
+*stateless*: no state needs to be preserved (onchain - data or hash) between uses
+
 One flavour of substraTEE is a RPC client for substrate that runs a state transition function (STF) within a TEE (Intel SGX). 
 
 Main feature: trusted hardware custodian of your private keys
@@ -22,11 +26,19 @@ Main feature: trusted hardware custodian of your private keys
 ![substraTEE-client](./substraTEE-client-overview.svg)
 
 # substraTEE-delegate
+*off-chain*: nothing special needs to be run by blockchain validators. normal transactions
+
+*stateful*: state needs to be preserved (onchain - data or hash) between uses
+
 Similar to [sawtooth PDO](https://github.com/hyperledger-labs/private-data-objects) or [Ekiden/OasisLabs](https://www.oasislabs.com/)
 
 Delegates can offer their enclave as a service to run confidential smart contracts on. delegates are remote attested on the blockchain. They have to be fed with the most recent state, call and payload. They then update the state that is written back to the chain.
 
 # substraTEE-node
+*on-chain*: blockchain validators run confidential state transition function with every extrinsic. 
+
+*stateful*: state needs to be preserved (onchain - data or hash) between uses
+
 a fork of substrate that has an Executor running in a TEE (Intel SGX)
 
 Main feature: many confidential transactions can be executed with every block
