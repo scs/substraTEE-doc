@@ -3,7 +3,7 @@ documentation for substraTEE, an extension of [parity substrate](https://github.
 
 # Different ways to leverage TEEs
 
-| use case | substraTEE-client <br>(off-chain stateless) | substraTEE-delegate<br> (off-chain stateful) | substraTEE-node<br> (onchain-stateful) |
+| use case | substraTEE-signer <br>(off-chain stateless) | substraTEE-offchain-contract<br> (off-chain stateful) | substraTEE-node<br> (onchain-stateful) |
 |----------|-------------------|----------------|-----------------|
 |hardware wallet| :+1: local TEE per user | | :thumbsdown:|
 |atomic swaps<br>(cross-chain bridge)| :+1: light node in both chains | :+1: | :thumbsdown: |
@@ -14,21 +14,23 @@ documentation for substraTEE, an extension of [parity substrate](https://github.
 | [POET](https://sawtooth.hyperledger.org/docs/core/releases/1.0/architecture/poet.html) consensus | :thumbsdown: | :thumbsdown: | :thumbsdown: |
 
 
-# substraTEE-client
+# substraTEE-signer
 *off-chain*: nothing special needs to be run by blockchain validators. normal transactions
 
 *stateless*: no state needs to be preserved (onchain - data or hash) between uses
+
+![signer](./substraTEE-signer.svg)
 
 One flavour of substraTEE is a RPC client for substrate that runs a state transition function (STF) within a TEE (Intel SGX). 
 
 Main feature: trusted hardware custodian of your private keys
 
-![substraTEE-client](./substraTEE-client-overview.svg)
-
 # substraTEE-delegate
 *off-chain*: nothing special needs to be run by blockchain validators. normal transactions
 
 *stateful*: state needs to be preserved (onchain - data or hash) between uses
+
+![offchain-contract](./substraTEE-offchain-contract.svg)
 
 Similar to [sawtooth PDO](https://github.com/hyperledger-labs/private-data-objects) or [Ekiden/OasisLabs](https://www.oasislabs.com/)
 
@@ -42,3 +44,5 @@ Delegates can offer their enclave as a service to run confidential smart contrac
 a fork of substrate that has an Executor running in a TEE (Intel SGX)
 
 Main feature: many confidential transactions can be executed with every block
+
+![node](./substraTEE-node.svg)
