@@ -25,16 +25,16 @@ One flavour of substraTEE is a RPC client for substrate that runs a state transi
 
 Main feature: trusted hardware custodian of your private keys
 
-# substraTEE-delegate
+# substraTEE off-chain contract
 *off-chain*: nothing special needs to be run by blockchain validators. normal transactions
 
 *stateful*: state needs to be preserved (onchain - data or hash) between uses
 
 ![offchain-contract](./substraTEE-offchain-contract.svg)
 
-Similar to [sawtooth PDO](https://github.com/hyperledger-labs/private-data-objects) or [Ekiden/OasisLabs](https://www.oasislabs.com/)
+Similar to but still quite different than [sawtooth PDO](https://github.com/hyperledger-labs/private-data-objects) or [Ekiden/OasisLabs](https://www.oasislabs.com/)
 
-Delegates can offer their enclave as a service to run confidential smart contracts on. delegates are remote attested on the blockchain. They have to be fed with the most recent state, call and payload. They then update the state that is written back to the chain.
+Dapps can commit WASM contracts and run their own TEE's or hire an enclave service to run confidential WASM smart contracts on. delegates are remote attested on the blockchain (the TCB doesn't include the WASM contract). They have to be fed with the most recent state, call and opaque payload. They then update the state that is written back to the chain.
 
 # substraTEE-node
 *on-chain*: blockchain validators run confidential state transition function with every extrinsic. 
