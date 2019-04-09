@@ -8,9 +8,10 @@ documentation for substraTEE, an extension of [parity substrate](https://github.
 |hardware wallet| :+1: local TEE per user | | :thumbsdown:|
 |atomic swaps<br>(cross-chain bridge)| :+1: light node in both chains | :+1: | :thumbsdown: |
 |coinmixer| :+1:  | :thumbsdown: | :thumbsdown: |
-|oracle| :+1: | no benefit wrt "-client" | difficult if non-deterministic |
+|oracle| :+1: | :+1: | difficult if non-deterministic |
 |inheritance notary| :+1: | :+1: | storage expensive |
 |confidential transactions| :thumbsdown: | :thumbsdown: doesn't scale? (collisions of state changes) | :+1: [encointer](https://encointer.org) |
+| 2nd layer confidential payment hub (Similar to [TeeChan](https://github.com/lsds/Teechain))|  | :+1: | |
 |confidential smart contracts |:thumbsdown: | :+1: (Ekiden, PDO, [encointer](https://encointer.org)) | computation time and storage expensive|
 | [POET](https://sawtooth.hyperledger.org/docs/core/releases/1.0/architecture/poet.html) consensus | :thumbsdown: | :thumbsdown: | :thumbsdown: |
 
