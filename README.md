@@ -40,7 +40,7 @@ Similar to but still quite different than [sawtooth PDO](https://github.com/hype
 
 Dapps can commit WASM contracts and run their own TEE's or hire an enclave service to run confidential WASM smart contracts on. delegates are remote attested on the blockchain (the TCB doesn't include the WASM contract). They have to be fed with the most recent state, call and opaque payload. They then update the state that is written back to the chain.
 
-# substraTEE-node
+# substraTEE-stealth-node
 *on-chain*: blockchain validators run confidential state transition function with every extrinsic. 
 
 *stateful*: state needs to be preserved (onchain - data or hash) between uses
@@ -49,4 +49,4 @@ a fork of substrate that has an Executor running in a TEE (Intel SGX)
 
 Main feature: many confidential transactions can be executed with every block
 
-![node](./substraTEE-node.svg)
+![node](./substraTEE-stealth-node.svg)
